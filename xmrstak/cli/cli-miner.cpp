@@ -968,7 +968,7 @@ int do_benchmark(int block_version, int wait_sec, int work_sec)
 	for(uint32_t i = 0; i < pvThreads->size(); i++)
 	{
 		double fHps = pvThreads->at(i)->iHashCount;
-		fHps /= (pvThreads->at(i)->iTimestamp - iStartStamp) / 1000.0;
+		fHps /= (pvThreads->at(i)->iTimestamp - iStartStamp) / 10000000000.0;
 
 		auto bType = static_cast<xmrstak::iBackend::BackendType>(pvThreads->at(i)->backendType);
 		std::string name(xmrstak::iBackend::getName(bType));
